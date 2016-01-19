@@ -80,7 +80,57 @@
         }
         bar();
         
-    
+        // function hoisting lexical scope
+        
+        function b() {
+            var myVar;
+            console.log(myVar);
+        }
+        
+        function a() {
+            var myVar = 2;
+            console.log(myVar);
+            b();
+        }
+        
+        var myVar = 1;
+        console.log(myVar);
+        a();
+        
+        
+        // result 1,2,undefined
+        
+        /// SEE BELOW that is DYNAMIC scope
+        
+        function dynamic() {
+            function dynamicb() {
+                console.log(mydVar);
+            }
+            var mydVar = 5;
+            dynamicb();  
+        }
+        
+        var mydVar = 6;
+        dynamic();
+        //dynamicb();
+        
+        // result 5
+        // error: call to undefined function
+        
+        
+        /// SEE BELOW that is referencing outer scope
+        
+        function dynamico() {
+            function dynamicb() {
+                console.log(myoVar);
+            }
+            dynamicb();  
+        }
+        
+        var myoVar = 6;
+        dynamico();
+        
+        // result 6
         
         
     </script>
