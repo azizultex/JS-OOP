@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JavaScript Variables, Variable Scope, Hoisting</title>
+    </head>
+    <body>
+        
+        
+    <script>
+//        // Variables, Variable Scope, Hoisting
+//
+        var fname = 'Suman';
+        var lname = 'Ali';
+        
+        console.log( fname + ' ' + lname);
+        
+        function myVar() {
+            var lname = 'Haque';
+            console.log('Variable from function: ' + lname);
+            console.log('Variable from outside: ' + fname);
+        }
+        
+        myVar();
+//        
+//        
+//        // Declaration & initialization !important
+//        
+//        var x; // Declaration;
+//        
+//        console.log('Value of x: ' + x);
+//        
+//        var y = 7; // initialization 
+//        
+//        console.log( 'Value of y: ' + y);
+//        
+//        
+//        //console.log(this);
+//        
+//        function myLocalThis() {
+//            console.log(this);
+//        }
+//        
+//        myLocalThis();
+//        
+        
+        
+        
+        // hosting 
+        
+//       var fname = 'Suman';
+//        
+//        if(true) {
+//            var fname = 'Monir';
+//        }
+//        
+//        console.log(fname);
+//        
+//        // hoisting for variables
+//        function myVar() {
+//            console.log(fname);
+//            var fname = 'Azizul';
+//        }
+//        
+//        myVar();
+        
+//         hoisting for functions 
+//        below function isn't hoisted because function is assigned to a variable
+//        foo();
+//        var foo = function() {
+//          alert("Hello!");
+//        };
+//        
+        // another nice example of hoistiong 
+        var foo = 1;
+        function bar() {
+            if (!foo) {
+                var foo = 10;
+            }
+            alert(foo);
+        }
+        bar();
+        
+    
+        
+        
+    </script>
+        
+    </body>
+</html>
