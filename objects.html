@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JS tuts</title>
+    </head>
+    <body>
+        
+        <script>
+            
+
+            
+            
+            
+            
+            // Object by Function
+            
+//            function funcObj(color, name) {
+//                this.color = color || 'red';
+//                this.name = name || 'Mac';
+//                this.getInfo = function() {
+//                    return 'Color ' + this.color + ' ' + 'Name ' + this.name;
+//                }
+//            }
+//            
+//            var ojb = new funcObj('green');
+//            console.log(ojb.getInfo());
+            
+            
+            
+            
+            
+            // Object Function defined outside
+            
+//            function myFunc() {
+//                this.type = 'Mac';
+//                this.color = 'Silver';
+//                this.getInfo = getProductInfo;
+//            }
+//            
+//            function getProductInfo() {
+//                return 'Product type: ' + this.type + ' And Product Color: ' + this.color;
+//            }
+//        
+//            var obj = new myFunc();
+//            console.log(obj.getInfo());
+            
+            
+            
+            
+            // Object Function Defined with Prototype
+            
+//            function myFunc() {
+//                this.name = 'Mac';
+//                this.color = 'Silver';
+//            }
+//            
+//            myFunc.prototype.getInfo = function(){
+//                return 'Product type: ' + this.name + ' And Product Color: ' + this.color;
+//            }
+//            
+//            var obj = new myFunc();
+//            console.log(obj.getInfo());
+            
+            
+            
+            
+            // Function object with literal
+//            
+//            var myoBj = {
+//                name: 'MAC',
+//                color: 'Silver',
+//                getInfo: function() {
+//                    _self = this;
+//                    return (function(){
+//                        return 'Name: ' + _self.name + ' Color: ' + _self.color;
+//                    })(); // using IIFE
+//                }
+//            }
+//            
+//            console.log(myoBj.getInfo());
+//            
+            
+            
+            
+
+            // IIFE (Immediately Invoking Function Expression)
+        
+            
+            var myFuncs = function(name) {
+                return 'Something returned here ' + name
+            }('ANYTING ELASE');
+            
+            console.log(myFuncs);
+            
+            
+            (function(c){
+                console.log('He live at '+ c);
+            }('Korea'));
+            
+            
+            // Clousers 
+            
+//            function myClouserFunc() {
+//                var myArra = [];
+//                for(var i=0; i < 5; i++ ) {
+//                    console.log(i);
+//                    myArra.push(function(){
+//                        console.log(i);
+//                    });
+//                }
+//                
+//                return myArra;
+//            }
+//            
+//            console.log(myClouserFunc()[0]);
+            
+//            function(){
+//                        console.log(i);
+//                    }
+//            actually not executed. So when it get executed later, it get the last value of i. to execute it we need IIFE function as show in the below snippet. 
+//                
+//                
+            
+            
+            // IIFE in complex 
+            // http://javascriptissexy.com/understand-javascript-closures-with-ease/
+            
+//            function myFuncIIFE() {
+//                var myArr = [];
+//                for ( var i=0; i<3; i++) {
+//                    myArr.push(
+//                        (function(t){
+//                            return function(){
+//                                console.log(t);
+//                            }
+//                        }(i))
+//                    )
+//                }
+//                
+//                return myArr;
+//            }
+//            
+//            var result = myFuncIIFE();
+//            result[0]();
+//            result[1]();
+//            result[2]();
+            
+            
+            // FOR IN 
+            
+            var arr = ['Apple', 'Banana', 'Mango'];
+            
+            console.dir(arr);
+            Array.prototype.doSomething = 'Cool!';
+            for ( var p in arr) {
+                if( arr.hasOwnProperty(p)) {
+                    console.log( p + ': ' + arr[p]);
+                }
+            }
+            
+            console.log('------------');
+            
+            for ( var i=0; i < arr.length; i++) {
+                console.log( i + ': ' + arr[i]);
+            }
+            
+
+        </script>
+    </body>
+</html>
