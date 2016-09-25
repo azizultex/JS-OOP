@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JavaScript Object Part2</title>
+</head>
+<body>
+
+<script>
+
+
+/* constructor function 
+
+RESOURCES:
+------------------------
+http://stackoverflow.com/questions/1592384/adding-prototype-to-javascript-object-literal
+http://jonathancreamer.com/object-literals-and-prototypes-in-javascript/#
+*/
+
+function Students() {
+	this.name 		= "Robin";
+	this.age  		= 19;
+	this.country	= "USA";
+}
+
+Students.prototype.grade = 3.67;
+
+// Students.prototype.getInfo = function() {
+// 	return this.name + " from " + this.country + " age " + this.age;
+// }
+
+Students.prototype = {
+	constructor: Students,
+	grade: 3.68,
+	getInfo: function() {
+		return this.name + " from " + this.country + " age " + this.age;
+	}
+}
+
+var Students = new Students();
+
+console.log(Students.grade);
+
+/* object literal */
+
+
+// var grade = 3.68;
+
+// var Students = {
+// 	name: 'Robin',
+// 	age: 19,
+// 	country: 'USA',
+// 	grade: grade
+// }
+
+// Students.getInfo = function() {
+// 	return Students.name + " from " + Students.country;
+// }
+
+
+
+// console.log(Students.getInfo());
+
+
+
+
+/* FOR IN */
+
+var triangle = { a:1, b:2, c:3}
+
+function ColoredTriangle() {
+	this.color = "red";
+}
+
+ColoredTriangle.prototype = triangle;
+
+var obj = new ColoredTriangle();
+
+for( var prop in obj ){
+	if(obj.hasOwnProperty(prop)) {
+		console.log("obj." + prop + " = " + obj[prop]);
+	}
+}
+
+</script>
+
+</body>
+</html>

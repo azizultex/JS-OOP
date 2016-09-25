@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Regular Expression</title>
+</head>
+<body>
+<script type="text/javascript">
+	var str = "Let's visit to Canada";
+	var pos = str.search(/Canada/);
+	/* regular expression literal */
+	//var rep = str.replace(/canada/i, "Bangladesh");
+	
+	/* regular expression constructor */
+	var rep = str.replace(new RegExp("canada", "i"), "Bangladesh");
+	console.log(pos);
+	console.log(rep);
+</script>
+</body>
+</html>
