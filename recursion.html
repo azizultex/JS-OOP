@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> JavaScript Recursion</title>
+	</head>
+	<body>
+	<script type="text/javascript">
+
+		function factorial(n) {
+			if( n === 0 ) {
+				return 1;
+			}
+			console.log(n * factorial(n-1)); 
+			return n * factorial(n-1);
+		}
+
+		factorial(5);
+
+
+		// function sum(x, y) {
+		//     if (y > 0) {
+		//     	console.log(x+1, y-1);
+		//       return sum(x + 1, y - 1);
+		//     } else {
+		//       return x;
+		//     }
+		// }
+
+		// console.log(sum(1, 10));
+
+
+
+	</script>
+	</body>
+</html>

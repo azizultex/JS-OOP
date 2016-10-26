@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JavaScript Clouser </title>
+</head>
+<body>
+	<h2> Body Color Change </h2>
+	<script>
+	var fade = function(node) {
+		var level = 1;
+		var step = function() {
+			var hex = level.toString(16);
+			node.style.backgroundColor = '#FFFF' + hex + hex;
+			if (level < 100) {
+				level += 1;
+				setTimeout(step, 1000);
+			}
+		};
+		setTimeout(step, 1000);
+	};
+
+setInterval(function(){fade(document.body)}, 1000);
+
+	</script>
+</body>
+</html>
