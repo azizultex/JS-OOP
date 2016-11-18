@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> JavaScript Scope and Context Understanding </title>
+	</head>
+	<body>
+		<script>
+
+			
+			/*
+
+			Resources: 
+			1. https://blog.kevinchisholm.com/javascript/difference-between-scope-and-context/
+			2. https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/
+
+			*/
+
+
+			var cat = {
+ 
+			   name: "Gus",
+			   color: "gray",
+			   age: 15,
+			 
+			   printInfo: function() {
+			      console.log("Name:", this.name, "Color:", this.color, "Age:", this.age); // object context
+			 
+			      nestedFunction = function() {
+			          console.log("Name:", this.name, "Color:", this.color, "Age:", this.age); // loses the context
+			      }
+			 
+			   nestedFunction();
+			   }
+			}
+			cat.printInfo(); //prints Name: window Color: undefined Age: undefined
+
+
+
+
+
+		</script>
+	</body>
+</html>

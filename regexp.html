@@ -1,3 +1,12 @@
+<!-- 
+
+Regular Expression: 
+
+1. Literal 
+2. Constructor
+
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +14,13 @@
 </head>
 <body>
 <script type="text/javascript">
-	var str = "Let's visit to Canada";
-	var pos = str.search(/Canada/);
-	/* regular expression literal */
-	//var rep = str.replace(/canada/i, "Bangladesh");
-	
-	/* regular expression constructor */
-	var rep = str.replace(new RegExp("canada", "i"), "Bangladesh");
-	console.log(pos);
-	console.log(rep);
+
+var myStr = "Hello, I am from.  \
+Have you ever visited Russia?";
+var litPos = myStr.search(/russia/i);
+
+console.log(litPos);
+
 </script>
 </body>
 </html>

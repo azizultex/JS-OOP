@@ -1,0 +1,15 @@
+1. https://www.nczonline.net/blog/2013/06/25/eval-isnt-evil-just-misunderstood/
+2. http://www.2ality.com/2012/01/object-plus-object.html
+3. http://www.2ality.com/2012/09/expressions-vs-statements.html
+4. http://www.2ality.com/2014/01/eval.html
+
+
+// context and scope 
+
+http://ryanmorr.com/understanding-scope-and-context-in-javascript/
+http://www.joshuakehn.com/2011/10/20/Understanding-JavaScript-Context.html
+
+
+
+https://github.com/woocommerce/woocommerce/issues/1487
+
