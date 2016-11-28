@@ -1,0 +1,9 @@
+# OS X 
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# node
+node_modules
