@@ -3,6 +3,33 @@
 1. http://www.nicoespeon.com/en/2015/01/pure-functions-javascript/
 2. https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976#.n8u76pjph
 
-
+Pure Function: Pure function is a function that doesn't change the or modify the variables outside of its scope.
 
  -->
+
+<script>
+
+ var values = { a: 1 }
+
+ function impureFunction(val) {
+ 	val.a = val.a  + 5;
+ 	return val;
+ }
+
+ // console.log(values); // return 1
+ // impureFunction(values); 
+ // console.log(values); // return 6 that is modified by impureFunction 
+
+ function pureFunction(val) {
+ 	var b = val.a + 5;
+ 	return b;
+ }
+
+console.log(values); // return 1
+pureFunction(values); 
+console.log(values); // return 1 that is not modified by pureFunction 
+
+
+
+
+ </script>

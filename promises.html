@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> JavaScript Promises </title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			// https://www.youtube.com/watch?v=s6SH72uAn3Q
+			// https://jsfiddle.net/u74L4n1t/
+			// https://jsfiddle.net/jspatel/mkjh2ev5/
+
+			let promiseToCleanTheRoom = new Promise(function( resolve, reject) {
+				// do the clearning 
+				var isClean = false;
+				if(isClean) {
+					resolve('clean');
+				} else {
+					reject('not clean');
+				}
+			});
+
+			promiseToCleanTheRoom.then(function(fromResolve) {
+				console.log('Room is ' + fromResolve );
+			}).catch(function(fromReject){
+				console.log('Room is ' + fromReject);
+			});
+
+
+		</script>
+	</body>
+</html>
