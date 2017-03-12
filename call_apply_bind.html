@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> JavaScript Call, Apply, Bind </title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		// 1. http://stackoverflow.com/questions/2125714/explanation-of-slice-call-in-javascript
+		// 2. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+		// SYNTAX: function.call(thisArg, arg1, arg2, arg3, ...)
+		// here thisArg act as keyword 'this' in function 
+
+		// convert an array like object to pure array 
+		// where nodelist act as 'this' in 'slice' js array function
+		var nodelist = document.querySelectorAll('a');
+		[].slice.call(nodelist, 0);
+
+
+
+
+		function Store(spec) {
+			this.specifications = spec;
+			// Cosmetics.specifications = spec; 
+			// This is how things happen behind the seen when Store.call(this, spec); in below 'Cosmetics' function
+		}
+
+		function Cosmetics(spec) {
+			Store.call(this, spec); // 'this' that refer to Cosmetics act as 'this' in 'Store' function
+			this.products = 'Cosmetics';
+		}
+
+		var spec = {
+			name: 'Auroma',
+			location: 'Abdul Hamid Road',
+			establised: 1950,
+		}
+
+		var cosmetics = new Cosmetics(spec);
+
+		// console.log(Cosmetics.hasOwnProperty('prototype'));
+		console.log(cosmetics);
+
+
+		var animal = [
+			{ species: 'Lion', name: 'King' },
+			{ species: 'Whale', name: 'Fail' }
+		];
+
+		for (var i = 0; i < animal.length; i++) {
+			(function(i){
+				this.print = function(){
+					console.log('#' + i + ' ' + this.species + ':' + this.name);
+				}
+				this.print();
+			}).call(animal[i], i);
+		}
+
+
+
+		function person() {
+			var output = [this.name, 'is a great', this.subject, 'developer'].join(' ');
+			console.log( output );
+		}
+
+		var i = {
+			name: 'Douglas Crockford', subject: 'JavaScript'
+		}
+
+		person.call(i);
+
+
+		</script>
+	</body>
+</html>
