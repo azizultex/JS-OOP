@@ -14,7 +14,7 @@ app.use(logger('dev'))
 app.use(bodyParser.json()) // Parses json, multi-part (file), url-encoded
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(publicDir, 'regexp.html'))
+  res.sendFile(path.join(publicDir, 'practice.html'))
 })
 
 var server = http.createServer(app)
