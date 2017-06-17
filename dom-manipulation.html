@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> JavaScript DOM Manipulation</title>
+	</head>
+	<body>
+		<h4> JavaScript DOM Manipulation </h4>
+		<section>
+			<img src="https://github.com/mdn/learning-area/blob/master/javascript/apis/document-manipulation/dinosaur.png?raw=true" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+			<p>Here we will add a link to the <a href="https://google.com">Mozilla homepage</a></p>
+		</section>
+
+		<section>
+			<h1>My shopping list</h1>
+			<div>
+				<label for="item">Enter a new item:</label>
+				<input type="text" name="item" class="item-input">
+				<button class="item-button">Add item</button>
+			</div>
+
+			<ul class="shoplist">
+
+			</ul>
+
+		</section>
+		<script>
+			/*
+			1. https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
+
+			1. Root node
+			2. Parent node
+			3. Child node
+			4. Sublings node
+			5. Descendant node
+			6. Text node
+			7. Elements node
+			*/
+			var link = document.querySelector('a');
+				link.textContent = "Mozilla Development Network";
+				link.href = "https://developer.mozilla.org";
+
+			var sect = document.querySelector('section');
+			var para = document.createElement('p');
+				para.textContent = "We hope you enjoyed the ride.";
+
+			sect.appendChild(para);
+
+			var linkPara = document.querySelector('p');
+			var text = document.createTextNode(' - the premier source for web development knowledge.');
+
+			linkPara.appendChild(text);
+
+			// clone a node 
+			var copyLinkPara = linkPara.cloneNode(true);
+			var copyText = document.createTextNode(' - copied version.');
+			copyLinkPara.appendChild(copyText);
+			sect.appendChild(copyLinkPara);
+
+			// move a node
+			// sect.appendChild(linkPara);
+			// sect.appendChild(copyLinkPara);
+
+			// remove a node 
+			sect.removeChild(linkPara);
+			copyLinkPara.parentNode.removeChild(copyLinkPara); // remove itself
+
+
+			// CSS STYLES
+			sect.style.backgroundColor = '#ddd';
+			sect.style.padding = '50px 20px';
+
+
+
+			// create a shop item list
+			var input = document.querySelector('.item-input');
+			var btn   = document.querySelector('.item-button');
+			var list  = document.querySelector('.shoplist');
+				list.style.listStyle = 'square';
+
+			btn.onclick = function(){
+				var val = input.value;
+				input.value = '';
+
+				// query selector 
+				var li = document.createElement('li');
+				var span = document.createElement('span');
+				var deleteBtn = document.createElement('button');
+
+				// set texts 
+				span.textContent = val;
+				deleteBtn.textContent = 'Delete';
+
+				// append items 
+				li.appendChild(span);
+				li.appendChild(deleteBtn);
+				list.appendChild(li);
+
+				deleteBtn.onclick = function() {
+					console.log('item to be deleted');
+				}
+			} 
+
+		</script>
+	</body>
+</html>
