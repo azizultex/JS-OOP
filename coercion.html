@@ -22,7 +22,7 @@
     <script>
 
 
-        // CEORCE in JavaScript
+        // CEORCE in JavaScåript
         // http://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-javascript
         // https://rainsoft.io/javascriptss-addition-operator-demystified/
         // http://getify.github.io/coercions-grid/
@@ -37,7 +37,30 @@
         Because '+' can mean either addition or string concatenation. If you pass a string and a number to '+' it always assumes string concatenation. On the other hand '-' only means subtract. So it will attempt to coerce the values passed in to a number.
         */
 
-        
+
+        /*  
+        Question: This article explains exactly what I was looking for. Thanks for nice explanation. Can you please explain why {} + 15 = 15 instead "[object Object]15" where 15 + {} = "15[object Object]" ?
+
+        ANSWER: 
+
+        I'm glad you find the article helpful!
+        {} + 15 = 15 is 15 because JavaScript interprets { } as an empty block statement followed by +15. This construction is equivalent to:
+
+        {
+           // empty block
+        }
+        + 15
+
+        You can add a pair of parenthesis to explicitly define an object literal: ( {} ) + 15="[object Object]15".
+
+        The second case 15 + {}. JavaScript first transforms the object literal into a string, then transforms 15 into a string and concatenates: "15[object Object]".
+
+
+        Question: Thank you very much for your excellent explanation. Can you also do me a favour explaining why do JavaScript sometimes interprets {} as empty block and sometimes convert it into a string?
+
+        ANSWER: Check here some details. 
+        https://stackoverflow.com/questions/26347326/when-does-js-interpret-as-an-empty-block-instead-of-an-empty-object
+
         
         /*
         
