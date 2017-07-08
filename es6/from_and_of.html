@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript from and of</title>
+</head>
+<body>
+	<div class="content">
+		<p>Banana</p>
+		<p>Apple</p>
+		<p>Pineapple</p>
+		<p>Grapes</p>
+	</div>
+	<script type="text/javascript">
+		const fruitsObj = document.querySelectorAll('.content p');
+		const fruitArray = Array.from(fruitsObj);
+
+		function getSum() {
+			const nums = Array.from(arguments);
+			return nums.reduce( (sum, current) => sum + current );
+		}
+
+		console.log(getSum(4, 5, 6456, 76564, 765))
+		
+	</script>
+</body>
+</html>

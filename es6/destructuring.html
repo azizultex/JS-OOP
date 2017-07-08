@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6 Destructuring</title>
+</head>
+<body>
+
+	<script>
+
+	// DESTRUCTURING OBJECT 
+		const azizul = {
+			name: 'Azizul Haque',
+			country: 'Bangladesh',
+			profession: 'Web Development',
+			age: 25
+		}
+
+		const patrick = {
+			name: 'Patrick Gorrell',
+			country: 'United States',
+			profession: 'Software Developer',
+			age: 45,
+			links: {
+				social: {
+					facebook: 'https://facebook.com/patrick',
+					twitter: 'https://twitter.com/patrick'
+				},
+				web: {
+					blog: 'http://patrick.me'
+				}
+			}
+		}
+
+		const { name, country, profession, age, meritstatus = 'Married' } = azizul;
+		const { name:pn, country:pc, profession:pp, age:pa } = patrick;
+		const { twitter, facebook } = patrick.links.social;
+		const { social } = patrick.links;
+
+		// document.body.innerHTML = social.facebook;
+
+
+		// DESTRUCTURING ARRAY
+
+		const sports = 'Basketball,Sports,90245,344,A,NBMCM,SD';
+		const [sportsname, category, sku, inventory] = sports.split(',');
+
+		const positions = [ 'Patrick', 'Andy', 'A', 'B', 'C' ];
+		const [ ceo, dev, ...extra ] = positions;
+		
+		document.body.innerHTML = extra;
+
+	</script>
+
+</body>
+</html>

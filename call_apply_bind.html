@@ -8,6 +8,7 @@
 		
 		// 1. http://stackoverflow.com/questions/2125714/explanation-of-slice-call-in-javascript
 		// 2. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+		// http://odetocode.com/blogs/scott/archive/2007/07/04/function-apply-and-function-call-in-javascript.aspx 
 
 		// SYNTAX: function.call(thisArg, arg1, arg2, arg3, ...)
 		// here thisArg act as keyword 'this' in function 
@@ -17,6 +18,26 @@
 		var nodelist = document.querySelectorAll('a');
 		[].slice.call(nodelist, 0);
 
+
+
+		function greetings(customMessage) {
+			let message = ["Hello", this.name, '.Thanks for your call from', this.country, customMessage];
+		  console.log(message.join(' '));
+		}
+
+		const ANDY = {
+			name: 'Andy Hawkins',
+		  country: 'US'
+		}
+
+		// greetings.call({ name: 'Azizul', country: 'BD'}, "I would like to meet you soon.");
+
+		// greetings.call(ANDY, "We are ready to help you from BD")
+
+
+		greetings.apply( { name: 'Azizul', country: 'BD'}, ['I would like to meet you soon.']);
+
+		greetings.apply( ANDY, ['We are ready to help you from BD.'])
 
 
 
