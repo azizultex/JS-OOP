@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JavaScript Spreads</title>
+	<style>
+		body {
+			background-color: orange;
+		}
+		h2.spreads {
+			color: #FFF;
+			font-size: 30px;
+			text-align: center;
+		}
+
+		h2.spreads span {
+			display: inline-block;
+			text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+			transition: transform 0.3s;
+		}
+		h2.spreads span:hover {
+			color: red;
+			transform: translateY(-10px) rotate(10deg) scale(2);
+		}
+	</style>
+</head>
+<body>
+
+	<h2 class="spreads">SPREADS</h2>
+	<script type="text/javascript">
+		const heading = document.querySelector('.spreads');
+		heading.innerHTML = spreadTexts(heading.textContent);
+		function spreadTexts(word){
+			return [...word].map( w => `<span>${w}</span>`).join('');
+		}
+
+	</script>
+</body>
+</html>
