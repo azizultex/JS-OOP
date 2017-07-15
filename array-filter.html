@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Array Filter Function</title>
+</head>
+<body>
+	
+	<script>
+
+	const arr = [
+		{ id: 12 },
+		{ id: -1 },
+		{ id: 0 }, 
+		{ id: 45 }, 
+		{ },
+		{ id: null },
+		{ id: 'undefined' },
+		{ id: NaN }
+	];
+
+	var invalidEntries = 0;
+
+	function isNumber(obj){
+		return obj !== undefined && typeof(obj) === 'number' && !isNaN(obj);
+	}
+
+	function filterById(item){
+		if(isNumber(item.id)){
+			return true;
+		}
+		invalidEntries++;
+		return false;
+	}
+
+	const finalItems = arr.filter(filterById);
+	console.log(finalItems);
+	console.log('Invalid Entries: ' + invalidEntries );
+
+
+	</script>
+</body>
+</html>

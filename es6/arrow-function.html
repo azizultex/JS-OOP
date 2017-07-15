@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Arrow Function</title>
+	<style type="text/css">
+		.parent {
+			height: 250px;
+			width: 250px;
+			background-color: #193549;
+			transition: 0.3s ease transform;
+		}
+		.child {
+		    height: 50px;
+		    width: 50px;
+		    background-color: #FFF;
+		    transition: 0.3s ease transform;
+		    margin: 0 auto;
+		    margin-top: calc(50% - 50px);
+		}
+		.parent.move {
+			transform: translateX(200px);
+		}		
+		.parent.animate .child {
+			transform: scaleX(4) scaleY(4);
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="parent">
+		<div class="child"></div>
+	</div>
+	
+	<script>
+		const compaines = ['JoomShaper', 'P1', 'WeDevs'];
+		const companiesWithCountry = compaines.map(function(com){
+			return `${com} - Bangladesh`;
+		});
+
+		const companiesWithCountry2 = compaines.map( com => {
+			return `${com} - Bangladesh`;
+		});
+
+		const companiesWithCountry3 = compaines.map( com => `${com} - Bangladesh`);
+
+		// console.log(companiesWithCountry);
+
+		const country = 'Bangladesh';
+		const players = ['Shakib', 'Tamim', 'Musfiq'];
+
+		const playersObj = players.map( ( player, i ) => ({ name: player, from: country, rank: i+1 }));
+
+		// console.log(playersObj);
+
+		const ages = [34, 7, 80, 70, 65, 78, 59];
+
+		const old = ages.map( age => {
+			if(age >= 60 ){
+				return age;
+			}
+			return false;
+		});
+
+		const old2 = ages.filter( age => age >= 70);
+		console.log(old2);
+
+		// console.log(old.filter( i => i ));
+
+		const box = document.querySelector('.parent');
+
+		box.addEventListener('click', function(){
+			let first = 'move';
+			let second = 'animate'; 
+			if(box.classList.contains(first)) {
+				[first, second] = [second, first]
+			}
+			this.classList.toggle(first);
+			setTimeout(() => {
+				this.classList.toggle(second);
+			}, 500)
+		});
+
+
+		// WHEN NOT TO USE ARROW FUNCTION
+		// 1. When you really need this 
+
+		const box2 = document.querySelector('.parent');
+		box2.addEventListener('click', function(){
+			console.log(this);
+			// this.classList.toggle('move');
+		});
+
+		// 2. When you need to bind a method to an object
+
+		const obj = {
+			points: 0,
+			addOne: function(){
+				this.points++;
+				console.log(this) // this would refer to window if using arrow function
+			}
+		}
+
+
+		// 3. When you need to add a prototype method
+
+		class Car {
+			constructor( name, color ){
+				this.name = name;
+				this.color = color;
+			}
+		}
+
+		// Car.prototype.info = function(){
+		// 	return `name: ${this.name}, color: ${this.color}`;
+		// };
+
+		Car.prototype.info = () => {
+			return `name: ${this.name}, color: ${this.color}`;
+		}
+
+		const Toyota = new Car('Toyota', 'black');
+		const Corola = new Car('Corola', 'White');
+
+		console.log(Toyota.info());
+
+
+		// When you need arguments object 
+
+		const orderChildren = () => {
+			children = Array.from(arguments); // this arguments won't get when using arrow function
+			return children.map( (child, i) => {
+				return `${child} was child #${i + 1}`;
+			});
+			console.log(arguments);
+		}
+
+
+
+	</script>
+</body>
+</html>
