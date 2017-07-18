@@ -38,6 +38,20 @@
 	console.log('Invalid Entries: ' + invalidEntries );
 
 
+
+var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
+
+/**
+ * Array filters items based on search criteria (query)
+ */
+function filterItems(query) {
+  return fruits.filter( fruit => fruit.toLowerCase().includes(query));
+}
+
+console.log(filterItems('ap')); // ['apple', 'grapes']
+console.log(filterItems('an')); // ['banana', 'mango', 'orange']
+
+
 	</script>
 </body>
 </html>
