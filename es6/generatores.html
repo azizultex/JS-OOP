@@ -13,6 +13,22 @@
 			yield '3';
 		}
 		const gen = myGen();
+
+		var arr = [
+			{ name: 'Newton' },
+			{ name: 'Hawkins' },
+			{ name: 'Einstain' },
+			{ name: 'Galilio' }
+		];
+
+		function* ite(arrayitem){
+			for( let item of arrayitem){
+				yield item;
+			}
+		}
+
+		const loo = ite(arr);
+
 	</script>
 </body>
 </html>
