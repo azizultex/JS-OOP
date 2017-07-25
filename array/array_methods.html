@@ -12,10 +12,13 @@
 		// sort
 		// https://stackoverflow.com/questions/1494713/how-does-javascripts-sort-work
 
+		Array.prototype.getThis = function(){
+			return this;
+		}
+
 		var sortASC1 = [2, 87, 8, 9, 1, 34].sort( (a, b ) => a-b);
 		var sortASC2 = [2, 87, 8, 9, 1, 34].sort( (a, b ) => {
 			console.log( "comparing " + a + ",  " + b );
-			console.log(this.valeof())
 			if( a < b ){
 				return -1;
 			}
