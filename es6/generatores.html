@@ -5,29 +5,67 @@
 	<title>JavaScript Generators </title>
 </head>
 <body>
-	
-	<script>
-		function* myGen(){
-			yield '1';
-			yield '2';
-			yield '3';
-		}
-		const gen = myGen();
 
-		var arr = [
-			{ name: 'Newton' },
-			{ name: 'Hawkins' },
-			{ name: 'Einstain' },
-			{ name: 'Galilio' }
+	<button>Click </button>
+	<p class="showresult"></p>
+	<script>
+
+		const data = [
+			{
+				name: 'Azizul',
+				speciality: ['JavaScript', 'PHP', 'WordPress']
+			},
+			{
+				name: 'Suman',
+				speciality: ['HTML', 'PHP', 'CSS', 'WordPress']
+			},
+			{
+				name: 'Limon',
+				speciality: ['PHP', 'WordPress']
+			},
+			{
+				name: 'Rubel',
+				speciality: 'FrontEnd'
+			},
+			{
+				name: 'Sabbir',
+				speciality: 'Web Development'
+			}
 		];
 
-		function* ite(arrayitem){
-			for( let item of arrayitem){
-				yield item;
+		const btn = document.querySelector('button');
+		const showresult = document.querySelector('.showresult');
+
+
+		const createGroupedArray = function(arr, chunksize=2){
+			let groups = [], i;
+			for( i = 0; i < arr.length; i += chunksize) {
+				groups.push(arr.slice(i, i+chunksize));
+			}
+			return groups;
+		}
+
+		const groupedArray = createGroupedArray(data);
+
+		function* loadUser(){
+			for( let d of groupedArray ){
+				yield d;
 			}
 		}
 
-		const loo = ite(arr);
+		const getMore = loadUser();
+
+		btn.onclick = () => {
+			const result = getMore.next();
+			if(!result.done){
+				// console.log(result.value);
+				// showresult.innerHTML = result.value.json();
+				result.value.map((data) => {
+					console.log('Name: ', data.name, 'Speciality: ', data.speciality);
+				})
+			}
+		}
+
 
 	</script>
 </body>
