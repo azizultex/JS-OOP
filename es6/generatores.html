@@ -25,11 +25,11 @@
 			},
 			{
 				name: 'Rubel',
-				speciality: 'FrontEnd'
+				speciality: ['FrontEnd']
 			},
 			{
 				name: 'Sabbir',
-				speciality: 'Web Development'
+				speciality: ['Web Development']
 			}
 		];
 
@@ -64,8 +64,14 @@
 					console.log('Name: ', data.name, 'Speciality: ', data.speciality);
 				})
 			}
+			console.log('No more data');
 		}
 
+
+		// generator for of 
+		for( let item of getMore){
+			console.log(item);
+		}
 
 	</script>
 </body>

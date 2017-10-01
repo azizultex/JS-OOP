@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> JavaScript Maps Function</title>
+</head>
+<body>
+
+	<button>Button 1</button>
+	<button>Button 2</button>
+	<button>Button 3</button>
+	<button>Button 4</button>
+	<button>Button 5</button>
+
+	<div id="result"></div>
+
+	<script>
+
+			// const laptops = new Map();
+
+			// laptops.set('Apple', 2400000);
+			// laptops.set('Dell', 40000);
+			// laptops.set('HP', 35000);
+
+			// laptops.forEach(( val, key ) => console.log( val, key ));
+
+			// for ( const [key, val] of laptops) {
+			// 	console.log( key, val );
+			// }
+
+
+			const clickCounts = new Map(),
+			result = document.getElementById('result'),
+			buttons = document.querySelectorAll('button');
+
+			function printCounts(){
+				// const compaines = ['JoomShaper', 'P1', 'WeDevs'];
+				// const data = compaines.map( com => `<li>${com}</li>`).join('');
+				const data = [];
+
+				clickCounts.forEach( (num, btn ) => { 
+					data.push(`<li>${btn.textContent} : ${num}</li>`)
+				});
+
+				// for ( const [key, val] of clickCounts ){
+				// 	data.push(`<li>${key.textContent} : ${val}</li>`);
+				// }
+
+				return `<ul>${data.join('')}</ul>`;
+			}
+
+			result.innerHTML = printCounts();
+
+			buttons.forEach( btn => {
+				clickCounts.set(btn, 0);
+				btn.addEventListener('click', function(){
+					const val = clickCounts.get(this);
+					clickCounts.set(this, val+1);
+					result.innerHTML = printCounts();
+				});
+			})
+
+	</script>
+</body>
+</html>

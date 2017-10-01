@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Static Class</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		class Calculator {
+			constructor(name){
+				this.name = name;
+			}
+			static multiply(a, b){
+				return a*b;
+			}
+
+			static add(a, b){
+				return a + b;
+			}
+
+			type(){
+				return `${this.name} calculator`;
+			}
+		}
+
+		class Calculator2 extends Calculator {
+			constructor(name){
+				super(name);
+			}
+			type(){
+				return `${this.name} calculator`;
+			}
+		}
+
+		let calculator = new Calculator('Scientific');
+		let calculator2 = new Calculator2('Regular');
+
+		let multiply = Calculator.multiply(5, 6);
+		let add = Calculator.add(5, 6);
+
+		// console.log(multiply);
+		// console.log(add);
+
+		console.log(calculator.type());
+		console.log(calculator2.type());
+
+	</script>
+</body>
+</html>
