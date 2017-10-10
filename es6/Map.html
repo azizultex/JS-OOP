@@ -49,8 +49,6 @@
 				return `<ul>${data.join('')}</ul>`;
 			}
 
-			result.innerHTML = printCounts();
-
 			buttons.forEach( btn => {
 				clickCounts.set(btn, 0);
 				btn.addEventListener('click', function(){

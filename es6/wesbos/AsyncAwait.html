@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Async + Await Flow Control</title>
+</head>
+<body>
+
+	<video controls class="handsome"></video>
+
+	<script type="text/javascript">
+		// fetch('http://api.github.com/users/wesbos').then( res => {
+		// 	return res.json();
+		// }).then( resp => {
+		// 	const { location, avatar_url } = resp;
+		// 	document.body.innerHTML = `<img src="${avatar_url}" />`;
+		// }).catch( error => {
+		// 	console.error('Oh no!!!!', error);
+		// });
+
+		const video = document.querySelector('.handsome');
+
+		navigator.mediaDevices.getUserMedia({ video: true }).then( videoStream => {
+			video.srcObject = videoStream;
+			video.load();
+			video.play();
+		});
+
+
+
+		// RESOURCE: https://tutorialzine.com/2017/07/javascript-async-await-explained
+
+
+	</script>
+</body>
+</html>
