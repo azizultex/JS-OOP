@@ -52,6 +52,35 @@ console.log(filterItems('ap')); // ['apple', 'grapes']
 console.log(filterItems('an')); // ['banana', 'mango', 'orange']
 
 
+
+// Delete a key value pair inside an object
+// https://codeburst.io/writing-javascript-with-map-reduce-980602ff2f2f
+
+const user = {name: 'Shivek Khurana', age: 23, password: 'SantaCl@use'};
+
+
+// const userWithoutPassword = Object.keys(user)
+//   .filter(key => key !== 'password')
+//   .map(key => {[key]: user[key]})
+//   .reduce((accumulator, current) => 
+//     ({...accumulator, ...current}),
+//     {}
+//   )
+// ;
+
+const userWithoutPassword = Object.keys(user)
+	.filter(key => key !== 'password')
+	.map(key => ({[key]: user[key]}))
+	.reduce( ( accumulator, current ) => ({ ...accumulator, ...current}), {});
+
+
+// OR
+
+// const userWithoutPassword = (({name, age}) => ({name, age}))(user);
+
+console.log('userWithoutPassword', userWithoutPassword);
+
+
 	</script>
 </body>
 </html>
