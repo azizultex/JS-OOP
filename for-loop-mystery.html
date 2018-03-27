@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>For Loop Mystery</title>
+</head>
+<body>
+
+	<script>
+		
+		// Resources 
+		// 1. https://www.w3schools.com/js/js_loop_for.asp
+		// 2. https://www.digitalocean.com/community/tutorials/how-to-construct-for-loops-in-javascript
+		// 3. https://zellwk.com/blog/js-for-loops/
+
+
+		// all the arguments of the for loop are optional
+
+		// Statement 1: 
+		// Normally you will use statement 1 to initialize the variable used in the loop (i = 0) . You can initiate many values in statement 1 (separated by comma):
+
+		// Statement 2: 
+		// Often statement 2 is used to evaluate the condition of the initial variable. If statement 2 returns true, the loop will start over again, if it returns false, the loop will end.
+
+		// If you omit statement 2, you must provide a break inside the loop. Otherwise the loop will never end. This will crash your browser. Read about breaks in a later chapter of this tutorial.
+
+		// Statement 3: 
+		// Often statement 3 increments the value of the initial variable. Statement 3 can do anything like negative increment (i--), positive increment (i = i + 15), or anything else. Statement 3 can also be omitted (like when you increment your values inside the loop):
+
+
+		var i = 0;
+		var len = cars.length;
+		for (; i < len; ) { 
+		    text += cars[i] + "<br>";
+		    i++;
+		}
+
+		// Omit initialization and condition
+		// we can also remove the condition from the loop. We will use an if statement combined with break to tell the loop to stop running once i is greater than 3, which is the reverse of the true condition.
+		let j = 0;
+		for (; ; j++) {
+		    if (i > 3) {
+		        break;
+		    }
+		    console.log(j);
+		}
+
+		// Omit all statements
+		// Lastly, the final expression can be removed by putting it at the end of the loop instead. Both semicolons must still be included, or the loop will not function.
+
+		let m = 0;
+		for (; ;) {
+		    if (m > 3) {
+		        break;
+		    }
+		    console.log(m);
+		    m++;
+		}
+
+
+		/*
+
+		function foo(){
+			"use strict";
+			m = 6; // Uncaught ReferenceError: m is not defined
+			console.log(m);
+		}
+
+		*/
+
+		// note: In strict mode, you can't define a var without declare it first. but non-strict mode will assign the m to global
+		// https://stackoverflow.com/questions/20822022/javascript-variable-definition-declaration/#answer-20822092
+
+
+		function foo(){
+
+			// "use strict";
+
+			function boo(){
+				m = 10;
+			}
+
+			for (var i = 0, m = 15; i<5; i++) {
+				console.log('i', i);
+				console.log('m in loop', m);
+				boo(); // m is overriden with m = 10;
+				console.log('m in loop', m);
+			}
+		}
+
+		foo();
+		//console.log('value of m in global scope', m); // Uncaught ReferenceError: m is not defined
+
+	</script>
+	
+</body>
+</html>
