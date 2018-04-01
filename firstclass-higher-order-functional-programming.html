@@ -10,8 +10,11 @@
 
 		// RESOURCES: 
 		// https://goo.gl/H593r5
+		// https://drboolean.gitbooks.io/mostly-adequate-guide-old/content/ch1.html
 
-		// First Class function is a function that can be passed as an arguments, return a function from another function, or assign a function with a variable.
+		// First Class function is a function that can be passed as an arguments, return a function from another function, or assign as constants, variables, placed as array elements and even set as values of keys on an object
+
+		// A higher order function is a function that takes a function as an argument, or returns a function.
 
 
 		// PASS FUNC AS AN ARGUMENT
@@ -61,6 +64,20 @@
 		welcome('Aziz');
 
 
+
+		// https://hackernoon.com/javascript-and-functional-programming-pt-2-first-class-functions-4437a1aec217
+
+		 // This example illustrates that functions in functional programming can be passed into arrays (lists) just like any other data type. Functions can go anywhere!
+
+		const add = (x,y) => x + y;
+		const subtract = (x,y) => x - y;
+		const multiply = (x,y) => x * y;
+
+		const arrayOfFunctions = [add, subtract, multiply];
+
+		arrayOfFunctions.forEach(calculationFunction => console.log(calculationFunction(1,1))); // 2 0 1
+
+
 		// FEW HIGHER ORDER FUNC map, filter, reduce
 
 		var num = [1, 2, 3, 4, 5, 6];
@@ -72,6 +89,11 @@
 
 		var total = num.reduce( ( total, currentValue, currentIndex )=> total + currentValue );
 		console.log(total);
+
+
+		// currying function 
+		// 1. https://hackernoon.com/javascript-and-functional-programming-currying-pt-4-96e3230782ab
+		// 2. https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe
 
 
 
