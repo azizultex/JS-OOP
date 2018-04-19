@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript IIFE, callback, scope, clouser</title>
+</head>
+<body>
+
+<script>
+
+
+// Immediately Invoked Function Express - IIFE
+// 1. https://stackoverflow.com/questions/6964895/javascript-variable-scope-in-the-if-statement 
+// 2. https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch5.md#loops--closure 
+
+
+for (var i=1; i<=5; i++) {
+	(function(j){
+		setTimeout( function timer(){
+			console.log( j );
+		}, j*1000 );
+	})( i );
+}
+
+
+</script>
+	
+</body>
+</html>

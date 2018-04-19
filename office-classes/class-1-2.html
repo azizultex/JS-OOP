@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Class 1</title>
+</head>
+<body>
+
+	<p class="showHTML"></p>
+	<p class="showHTML">Default Text</p>
+	<p id="showHTML"></p>
+
+	<script>
+
+
+	// Data types 
+	// 1. String
+	// 2. Number
+	// 3. Boolean
+	// 4. Object 
+	// 5. Undefined
+	// 6. Null
+	// 7. Symbol
+
+
+	// Variable SCOPE
+
+
+
+		var myArr = ['A', 'B', 'C', 'D'];
+
+
+		var product = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem velit excepturi delectus magnam, officiis aspernatur perferendis illo impedit, eos vitae, natus magni, libero quasi debitis neque beatae! Suscipit, quae, error!';
+
+
+		// console.log(product)
+
+		var elClass = document.getElementsByClassName('showHTML');
+
+		var elID = document.getElementById('showHTML');
+
+		// elClass[1].innerHTML = product;
+
+		var name = "Limon";
+
+		function showMyName(){
+
+			var name = "Azizul";
+			return "Hi, my name is " + name;
+
+		}
+
+
+		var takitup;
+
+		// console.log('before', takitup);
+
+		var takitup = 54645;
+
+		// console.log('after', takitup)
+
+		// console.log('add', add);
+		// add(100, 5);
+
+		var add = function(a, b){
+			console.log(a + b)
+		}
+
+		function divided(a, b){
+			console.log(a/b)
+		}
+
+
+		// 18 April, 2018
+
+		// block label scoping 
+		// hosting 
+
+		{
+			let jakir = "Jakir in bracket"
+		  jakir = "Jakir in Bracket overridden"
+		  console.log(jakir)
+		}
+
+		let jakir = "Jakir in Global Scope"
+		// jakir = "Jakir in Global scope overridden"
+
+		console.log(jakir)
+
+
+		var j = "J"
+		function CheckOverride(){
+			j = "K"
+		}
+
+		// CheckOverride()
+		// console.log(j)
+
+		// var a = 1;
+		// for (; ;) {
+		// 	if( a > 10 ){
+		// 		break;
+		// 	}
+		// 	console.log(a)
+		// 	a++;
+		// }
+
+
+		function foo(){
+			function bar(a){
+				var i = 3;
+				console.log( a + i)
+			}
+
+			for (var i = 1; i < 10; i++) {
+				bar( i * 2)
+			}
+		}
+
+		foo();
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>
