@@ -8,6 +8,45 @@
 
 <script>
 
+/*
+1. https://medium.freecodecamp.org/demystifying-javascripts-new-keyword-874df126184c
+2. https://www.toptal.com/javascript/javascript-prototypes-scopes-and-performance-what-you-need-to-know 
+3. https://hackernoon.com/prototypes-in-javascript-5bba2990e04b
+*/
+
+
+
+function Foo( name ){
+	this.name = name;
+}
+
+Foo.prototype.getName = function(){
+	return this.name;
+}
+
+function Boo( name, label ){
+	Foo.call(this, name);
+	this.label = label;
+}
+
+// Pre ES6
+Boo.prototype = Object.create(Foo.prototype);
+
+// ES6+
+// Object.setPrototypeOf(Boo.prototype, Foo.prototype);
+
+Boo.prototype.Boolabel = "Boo Label";
+
+
+var a = new Foo('Abc', 'Foo a');
+var b = new Boo('def', 'Boo a');
+console.log(a.name);
+console.log(a.label);
+console.log(a.getName());
+console.log('a prototype', Object.getPrototypeOf(a));
+console.log('b prototype ', Object.getPrototypeOf(b));
+
+
 
 /* constructor function 
 
