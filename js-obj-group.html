@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Object Grouping</title>
+</head>
+<body>
+    
+
+    <h1>Javascript Object Grouping</h1>
+
+    <!-- https://www.youtube.com/watch?v=AqbDkXQJbH4&t=84s -->
+
+
+
+    <script>
+
+        languages = [
+            { title: 'Javascript', type: 'scripting' },
+            { title: 'PHP', type: 'Server Side' },
+            { title: 'Python', type: 'scripting' },
+        ];
+
+        groupedLanguages = Object.groupBy(languages, lang => lang.type);
+        console.log(groupedLanguages);
+        console.log(groupedLanguages.scripting);
+
+        // fetch('https://dummyjson.com/products')
+        // .then(res => res.json())
+        // .then(json => console.log(json))
+    </script>
+
+</body>
+</html>
